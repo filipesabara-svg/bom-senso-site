@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bom Senso TV — Veja com seus próprios olhos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--accent:#1E6B50;--bg:#0f0f0f;--text:#f5f0e8;--card:#1a1a1a}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+a{color:inherit;text-decoration:none}
+nav{position:fixed;top:0;width:100%;background:rgba(15,15,15,0.95);backdrop-filter:blur(10px);z-index:100;border-bottom:1px solid rgba(30,107,80,0.3);padding:0 2rem}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:900;color:#C9A84C;letter-spacing:2px}
+.nav-links{display:flex;gap:1.5rem;list-style:none}
+.nav-links a{font-size:0.82rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--text);opacity:0.8;transition:opacity 0.2s,color 0.2s}
+.nav-links a:hover,.nav-links a.active{opacity:1;color:var(--accent)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{width:24px;height:2px;background:var(--text);display:block}
+@media(max-width:768px){
+  .nav-links{display:none;position:absolute;top:64px;left:0;width:100%;background:#0f0f0f;flex-direction:column;padding:1rem 2rem;gap:1rem;border-bottom:1px solid rgba(30,107,80,0.2)}
+  .nav-links.open{display:flex}
+  .hamburger{display:flex}
+}
+.page-hero{padding:10rem 2rem 5rem;text-align:center;background:radial-gradient(ellipse at center,rgba(30,107,80,0.08) 0%,transparent 65%)}
+.page-badge{display:inline-block;font-size:0.7rem;letter-spacing:4px;text-transform:uppercase;color:var(--accent);border:1px solid rgba(30,107,80,0.4);padding:0.4rem 1.2rem;border-radius:2px;margin-bottom:1.5rem}
+.page-title{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,6vw,5rem);font-weight:900;color:var(--text);margin-bottom:0.8rem}
+.page-title span{color:var(--accent)}
+.page-slogan{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1.1rem,2vw,1.4rem);opacity:0.7;margin-bottom:1.5rem}
+.page-desc{max-width:640px;margin:0 auto;font-size:1rem;opacity:0.65;line-height:1.8}
+section{padding:5rem 2rem}
+.container{max-width:1200px;margin:0 auto}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.5rem);font-weight:700;color:var(--accent);margin-bottom:0.5rem}
+.section-sub{font-size:0.8rem;letter-spacing:3px;text-transform:uppercase;opacity:0.4;margin-bottom:2.5rem}
+.content-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.2rem}
+.content-card{background:var(--card);border:1px solid rgba(255,255,255,0.06);border-radius:4px;padding:1.8rem;transition:border-color 0.3s,background 0.3s}
+.content-card:hover{border-color:var(--accent);background:rgba(30,107,80,0.06)}
+.content-icon{font-size:2rem;margin-bottom:0.8rem}
+.content-name{font-family:'Playfair Display',serif;font-size:1.05rem;margin-bottom:0.4rem}
+.content-desc{font-size:0.82rem;opacity:0.55;line-height:1.6}
+.platforms{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:3rem}
+.platform-btn{display:flex;align-items:center;gap:0.6rem;padding:0.8rem 2rem;border:1px solid rgba(30,107,80,0.5);border-radius:4px;font-size:0.85rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;transition:all 0.3s;color:var(--text)}
+.platform-btn:hover{background:var(--accent);border-color:var(--accent)}
+.highlight-box{background:var(--card);border-left:3px solid var(--accent);border-radius:0 4px 4px 0;padding:2rem;margin:2rem 0}
+.highlight-box h3{font-family:'Playfair Display',serif;font-size:1.4rem;margin-bottom:0.8rem}
+.highlight-box p{opacity:0.65;line-height:1.8}
+footer{background:#080808;border-top:1px solid rgba(30,107,80,0.15);padding:3rem 2rem;text-align:center}
+.footer-logo{font-family:'Playfair Display',serif;font-size:1.8rem;color:#C9A84C;font-weight:900;margin-bottom:1rem}
+.footer-tagline{font-size:0.75rem;letter-spacing:3px;text-transform:uppercase;opacity:0.4;margin-bottom:1.5rem}
+.footer-links{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.footer-links a{font-size:0.8rem;opacity:0.5;letter-spacing:1px;text-transform:uppercase;transition:opacity 0.2s}
+.footer-links a:hover{opacity:1;color:#C9A84C}
+.footer-copy{font-size:0.75rem;opacity:0.3}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">BOM SENSO®</a>
+    <button class="hamburger" onclick="this.nextElementSibling.classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="news.html">News</a></li>
+      <li><a href="tv.html" class="active">TV</a></li>
+      <li><a href="lifestyle.html">Lifestyle</a></li>
+      <li><a href="club.html">Club</a></li>
+      <li><a href="partido.html">Partido</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-badge">Ecossistema Bom Senso</div>
+  <h1 class="page-title">Bom Senso <span>TV</span></h1>
+  <p class="page-slogan">"Veja com seus próprios olhos"</p>
+  <p class="page-desc">Canal de vídeo com entrevistas exclusivas, debates ao vivo e análise de conjuntura. Disponível no YouTube e Rumble.</p>
+</div>
+
+<section style="background:#0a0a0a">
+  <div class="container">
+    <h2 class="section-title">Conteúdos</h2>
+    <p class="section-sub">Formatos para todos os momentos</p>
+    <div class="content-grid">
+      <div class="content-card"><div class="content-icon">🎙️</div><div class="content-name">Entrevistas</div><div class="content-desc">Conversas aprofundadas com líderes, pensadores e figuras de destaque.</div></div>
+      <div class="content-card"><div class="content-icon">⚡</div><div class="content-name">Debates ao Vivo</div><div class="content-desc">Confronto de ideias com transmissão ao vivo e participação do público.</div></div>
+      <div class="content-card"><div class="content-icon">🔍</div><div class="content-name">Análise Política</div><div class="content-desc">Leitura apurada dos movimentos políticos do Brasil e do mundo.</div></div>
+      <div class="content-card"><div class="content-icon">🎬</div><div class="content-name">Documentários</div><div class="content-desc">Produções originais sobre temas que moldam o Brasil contemporâneo.</div></div>
+      <div class="content-card"><div class="content-icon">💬</div><div class="content-name">Comentários</div><div class="content-desc">Análise rápida dos fatos do dia com visão conservadora e objetiva.</div></div>
+    </div>
+    <div class="platforms">
+      <a href="#" class="platform-btn">▶ YouTube</a>
+      <a href="#" class="platform-btn">📡 Rumble</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="highlight-box">
+      <h3>Por que assistir?</h3>
+      <p>A Bom Senso TV não busca audiência fácil. Busca verdade. Nossos apresentadores e convidados falam o que pensam, baseados em fatos verificáveis — sem medo de contrariar o consenso imposto pela mídia hegemônica.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">BOM SENSO®</div>
+  <div class="footer-tagline">Veritas · Ordo · Libertas</div>
+  <div class="footer-links">
+    <a href="news.html">News</a>
+    <a href="tv.html">TV</a>
+    <a href="lifestyle.html">Lifestyle</a>
+    <a href="club.html">Club</a>
+    <a href="partido.html">Partido</a>
+    <a href="sobre.html">Sobre</a>
+  </div>
+  <div class="footer-copy">© 2026 Bom Senso® · Veritas · Ordo · Libertas</div>
+</footer>
+</body>
+</html>

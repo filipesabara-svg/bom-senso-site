@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Partido Bom Senso — Verdade, ordem e liberdade</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--accent:#1B5E20;--bg:#0f0f0f;--text:#f5f0e8;--card:#1a1a1a}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+a{color:inherit;text-decoration:none}
+nav{position:fixed;top:0;width:100%;background:rgba(15,15,15,0.95);backdrop-filter:blur(10px);z-index:100;border-bottom:1px solid rgba(27,94,32,0.3);padding:0 2rem}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:900;color:#C9A84C;letter-spacing:2px}
+.nav-links{display:flex;gap:1.5rem;list-style:none}
+.nav-links a{font-size:0.82rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--text);opacity:0.8;transition:opacity 0.2s,color 0.2s}
+.nav-links a:hover,.nav-links a.active{opacity:1;color:var(--accent)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{width:24px;height:2px;background:var(--text);display:block}
+@media(max-width:768px){
+  .nav-links{display:none;position:absolute;top:64px;left:0;width:100%;background:#0f0f0f;flex-direction:column;padding:1rem 2rem;gap:1rem;border-bottom:1px solid rgba(27,94,32,0.2)}
+  .nav-links.open{display:flex}
+  .hamburger{display:flex}
+}
+.page-hero{padding:10rem 2rem 5rem;text-align:center;background:radial-gradient(ellipse at center,rgba(27,94,32,0.08) 0%,transparent 65%)}
+.page-badge{display:inline-block;font-size:0.7rem;letter-spacing:4px;text-transform:uppercase;color:var(--accent);border:1px solid rgba(27,94,32,0.4);padding:0.4rem 1.2rem;border-radius:2px;margin-bottom:1.5rem}
+.page-title{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,6vw,5rem);font-weight:900;color:var(--text);margin-bottom:0.8rem}
+.page-title span{color:var(--accent)}
+.page-slogan{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1.1rem,2vw,1.4rem);opacity:0.7;margin-bottom:1.5rem}
+.page-desc{max-width:640px;margin:0 auto;font-size:1rem;opacity:0.65;line-height:1.8}
+section{padding:5rem 2rem}
+.container{max-width:1200px;margin:0 auto}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.5rem);font-weight:700;color:var(--accent);margin-bottom:0.5rem}
+.section-sub{font-size:0.8rem;letter-spacing:3px;text-transform:uppercase;opacity:0.4;margin-bottom:2.5rem}
+.pauta-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.2rem}
+.pauta-card{background:var(--card);border:1px solid rgba(255,255,255,0.06);border-radius:4px;padding:1.8rem;transition:border-color 0.3s,background 0.3s;text-align:center}
+.pauta-card:hover{border-color:var(--accent);background:rgba(27,94,32,0.06)}
+.pauta-icon{font-size:2rem;margin-bottom:0.8rem}
+.pauta-name{font-family:'Playfair Display',serif;font-size:1.05rem;margin-bottom:0.4rem}
+.pauta-desc{font-size:0.82rem;opacity:0.55;line-height:1.6}
+.manifesto{background:var(--card);border:1px solid rgba(27,94,32,0.3);border-radius:4px;padding:3rem;text-align:center;margin:3rem 0}
+.manifesto h3{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3vw,2.5rem);color:var(--accent);margin-bottom:1.5rem}
+.manifesto p{opacity:0.7;line-height:1.9;max-width:700px;margin:0 auto 1.5rem}
+.cta-btn{display:inline-block;padding:1rem 2.5rem;background:var(--accent);color:var(--text);font-size:0.85rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;border-radius:2px;transition:opacity 0.3s}
+.cta-btn:hover{opacity:0.85}
+footer{background:#080808;border-top:1px solid rgba(27,94,32,0.15);padding:3rem 2rem;text-align:center}
+.footer-logo{font-family:'Playfair Display',serif;font-size:1.8rem;color:#C9A84C;font-weight:900;margin-bottom:1rem}
+.footer-tagline{font-size:0.75rem;letter-spacing:3px;text-transform:uppercase;opacity:0.4;margin-bottom:1.5rem}
+.footer-links{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.footer-links a{font-size:0.8rem;opacity:0.5;letter-spacing:1px;text-transform:uppercase;transition:opacity 0.2s}
+.footer-links a:hover{opacity:1;color:#C9A84C}
+.footer-copy{font-size:0.75rem;opacity:0.3}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">BOM SENSO®</a>
+    <button class="hamburger" onclick="this.nextElementSibling.classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="news.html">News</a></li>
+      <li><a href="tv.html">TV</a></li>
+      <li><a href="lifestyle.html">Lifestyle</a></li>
+      <li><a href="club.html">Club</a></li>
+      <li><a href="partido.html" class="active">Partido</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-badge">Ecossistema Bom Senso</div>
+  <h1 class="page-title">Partido <span>Bom Senso</span></h1>
+  <p class="page-slogan">"Verdade, ordem e liberdade"</p>
+  <p class="page-desc">Partido fundado nos princípios inegociáveis do bom senso. Brasil governado com pragmatismo, fé e respeito à realidade.</p>
+</div>
+
+<section style="background:#0a0a0a">
+  <div class="container">
+    <h2 class="section-title">Nossas Pautas</h2>
+    <p class="section-sub">O que defendemos — sem ambiguidade</p>
+    <div class="pauta-grid">
+      <div class="pauta-card"><div class="pauta-icon">🏛️</div><div class="pauta-name">Conservadorismo</div><div class="pauta-desc">Preservar o que funciona. Reformar o que precisa. Jamais destruir o que é bom.</div></div>
+      <div class="pauta-card"><div class="pauta-icon">📈</div><div class="pauta-name">Livre Mercado</div><div class="pauta-desc">Menos Estado, mais prosperidade. O mercado livre gera riqueza, o planejamento central gera pobreza.</div></div>
+      <div class="pauta-card"><div class="pauta-icon">⚙️</div><div class="pauta-name">Pragmatismo</div><div class="pauta-desc">O que importa é o que funciona. Dados, resultados, realidade — não ideologia.</div></div>
+      <div class="pauta-card"><div class="pauta-icon">✝️</div><div class="pauta-name">Fé em Deus</div><div class="pauta-desc">A fé é o fundamento moral da civilização ocidental. Não abriremos mão disso.</div></div>
+      <div class="pauta-card"><div class="pauta-icon">👶</div><div class="pauta-name">Pró-Vida</div><div class="pauta-desc">Toda vida tem valor. A defesa da vida é nossa posição mais inegociável.</div></div>
+      <div class="pauta-card"><div class="pauta-icon">🔫</div><div class="pauta-name">Pró-Armas</div><div class="pauta-desc">Cidadão armado é cidadão livre. O direito de autodefesa é inalienável.</div></div>
+      <div class="pauta-card"><div class="pauta-icon">🔢</div><div class="pauta-name">1+1=2</div><div class="pauta-desc">A realidade é objetiva. Não há ideologia que mude os fatos da natureza e da matemática.</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="manifesto">
+      <h3>Nosso Manifesto</h3>
+      <p>O Brasil precisa de um partido que fale a verdade, mesmo quando dói. Que defenda a ordem, mesmo quando é inconveniente. Que proteja a liberdade, mesmo quando outros preferem a tutela do Estado.</p>
+      <p>O Partido Bom Senso não é de direita nem de esquerda — é da realidade. E a realidade tem um lado.</p>
+      <a href="#" class="cta-btn">Quero me filiar</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">BOM SENSO®</div>
+  <div class="footer-tagline">Veritas · Ordo · Libertas</div>
+  <div class="footer-links">
+    <a href="news.html">News</a>
+    <a href="tv.html">TV</a>
+    <a href="lifestyle.html">Lifestyle</a>
+    <a href="club.html">Club</a>
+    <a href="partido.html">Partido</a>
+    <a href="sobre.html">Sobre</a>
+  </div>
+  <div class="footer-copy">© 2026 Bom Senso® · Veritas · Ordo · Libertas</div>
+</footer>
+</body>
+</html>
