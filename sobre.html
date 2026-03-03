@@ -1,86 +1,165 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sobre — Bom Senso®</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#f0ebe0;padding-top:48px;}
-nav{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(8,8,8,0.97);border-bottom:1px solid rgba(201,168,76,0.25);padding:0.5rem 1.5rem;display:flex;justify-content:space-between;align-items:center;}
-.nav-logo{font-family:'Playfair Display',serif;color:#C9A84C;font-size:0.8rem;font-weight:700;text-decoration:none;letter-spacing:0.2em;}
-.nav-links{display:flex;gap:1.5rem;list-style:none;}
-.nav-links a{color:#f0ebe0;text-decoration:none;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;}
-.nav-links a:hover,.nav-links a.active{color:#C9A84C;}
-section{padding:1.5rem 1.2rem;}
-h1{font-family:'Playfair Display',serif;}
-h2{font-family:'Playfair Display',serif;font-size:1.4rem;margin-bottom:0.5rem;}
-h3{font-family:'Playfair Display',serif;font-size:1.1rem;margin-bottom:0.3rem;}
-p{font-size:0.9rem;line-height:1.5;opacity:0.8;}
-.card{background:#141414;border:1px solid rgba(255,255,255,0.06);border-radius:4px;padding:1rem;}
-.card:hover{border-color:rgba(201,168,76,0.3);}
-footer{background:#060606;border-top:1px solid rgba(201,168,76,0.15);padding:1rem 1.5rem;text-align:center;font-size:0.75rem;opacity:0.5;}
-.hero{padding:2.5rem 1.2rem 1.5rem;background:linear-gradient(180deg,#111 0%,#0a0a0a 100%);}
-.hero h1{font-size:2.5rem;line-height:1.1;margin-bottom:0.4rem;}
-.brasao-items{display:flex;flex-direction:column;gap:0.5rem;}
-.brasao-item{background:#141414;border:1px solid rgba(255,255,255,0.06);border-left:3px solid #C9A84C;border-radius:0 4px 4px 0;padding:0.75rem 1rem;}
-.brasao-item strong{font-size:0.85rem;display:block;margin-bottom:0.2rem;}
-.brasao-item span{font-size:0.8rem;opacity:0.6;}
-.valores-trio{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.5rem;margin-top:0.75rem;}
-.v-item{background:#141414;border:1px solid rgba(201,168,76,0.15);border-radius:4px;padding:0.75rem;text-align:center;}
-.v-item .lat{font-family:'Playfair Display',serif;font-size:0.95rem;color:#C9A84C;display:block;margin-bottom:0.2rem;}
-.v-item .pt{font-size:0.75rem;opacity:0.6;}
-.sistema-visual{display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;}
-.sv-item{background:#141414;border:1px solid rgba(255,255,255,0.06);border-radius:4px;padding:0.75rem;font-size:0.8rem;}
-.sv-item .dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:0.4rem;vertical-align:middle;}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sobre — Bom Senso®</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --gold: #B8860B; --cream: #F5F0E8; --dark: #1A1A1A; --gray: #5A5A5A; }
+    body { font-family: 'Inter', sans-serif; background: #0a0a0a; color: #f0ebe0; padding-top: 48px; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+      background: rgba(8,8,8,0.97);
+      border-bottom: 1px solid rgba(201,168,76,0.25);
+      padding: 0.5rem 1.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .nav-logo { font-family: 'Playfair Display', serif; color: #C9A84C; font-size: 0.8rem; font-weight: 700; text-decoration: none; letter-spacing: 0.2em; }
+    .nav-back { color: #C9A84C; text-decoration: none; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; display: flex; align-items: center; gap: 0.3rem; }
+    .nav-back:hover { opacity: 0.7; }
+
+    /* HEADER */
+    .page-header {
+      text-align: center;
+      padding: 3rem 1.5rem 2rem;
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+    }
+    .section-num {
+      font-size: 0.6rem; letter-spacing: 0.4em; text-transform: uppercase;
+      color: #C9A84C; font-weight: 600; margin-bottom: 0.75rem;
+    }
+    .page-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      font-weight: 900; color: #f0ebe0; margin-bottom: 0.75rem;
+    }
+    .page-header p {
+      font-size: 0.95rem; line-height: 1.6; opacity: 0.6;
+      max-width: 560px; margin: 0 auto;
+    }
+
+    /* VALORES GRID */
+    .valores-section { padding: 2.5rem 1.5rem; max-width: 900px; margin: 0 auto; }
+
+    .valores-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.75rem;
+    }
+
+    .valor-card {
+      background: #141414;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 6px;
+      padding: 1.2rem 0.9rem;
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; gap: 0.5rem;
+      transition: border-color 0.2s;
+    }
+    .valor-card:hover { border-color: rgba(201,168,76,0.35); }
+
+    .valor-icon { font-size: 1.5rem; line-height: 1; }
+
+    .valor-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.85rem; font-weight: 700; color: #f0ebe0;
+    }
+
+    .valor-desc {
+      font-size: 0.72rem; line-height: 1.4; opacity: 0.5; color: #f0ebe0;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #060606;
+      border-top: 1px solid rgba(201,168,76,0.15);
+      padding: 1.5rem; text-align: center;
+      font-size: 0.75rem; opacity: 0.5; margin-top: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      .valores-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
 </head>
 <body>
-<nav>
-  <a class="nav-logo" href="index.html">BOM SENSO®</a>
-  <ul class="nav-links">
-    <li><a href="news.html">News</a></li>
-    <li><a href="tv.html">TV</a></li>
-    <li><a href="lifestyle.html">Lifestyle</a></li>
-    <li><a href="club.html">Club</a></li>
-    <li><a href="sobre.html" class="active">Sobre</a></li>
-  </ul>
-</nav>
-<section class="hero">
-  <h1>Sobre o Ecossistema</h1>
-  <p style="margin-top:0.5rem;">Um ecossistema construído sobre verdade, ordem e liberdade.</p>
-</section>
-<section>
-  <h2>O Brasão</h2>
-  <div class="brasao-items">
-    <div class="brasao-item"><strong>Escudo</strong><span>A defesa dos princípios e da identidade nacional</span></div>
-    <div class="brasao-item"><strong>Losango Central</strong><span>A forma brasileira — referência à nação e ao território</span></div>
-    <div class="brasao-item"><strong>Estrela Guia</strong><span>Orientação e propósito, norte inabalável</span></div>
-    <div class="brasao-item"><strong>Coroa / Tiara</strong><span>Excelência e comprometimento com o mais alto padrão</span></div>
-    <div class="brasao-item"><strong>Ramos de Louros</strong><span>Vitória conquistada com mérito e dedicação</span></div>
+
+  <nav>
+    <a class="nav-logo" href="index.html">BOM SENSO®</a>
+    <a class="nav-back" href="index.html">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      Voltar
+    </a>
+  </nav>
+
+  <div class="page-header">
+    <p class="section-num">08 — Valores do Ecossistema</p>
+    <h1>Os princípios que unem tudo</h1>
+    <p>De cada notícia a cada candidatura — os mesmos princípios se aplicam em todo o ecossistema.</p>
   </div>
-</section>
-<section>
-  <h2>Veritas · Ordo · Libertas</h2>
-  <div class="valores-trio">
-    <div class="v-item"><span class="lat">Veritas</span><span class="pt">Verdade</span></div>
-    <div class="v-item"><span class="lat">Ordo</span><span class="pt">Ordem</span></div>
-    <div class="v-item"><span class="lat">Libertas</span><span class="pt">Liberdade</span></div>
-  </div>
-</section>
-<section>
-  <h2>Sistema Visual</h2>
-  <p style="margin-bottom:0.75rem;">Cada unidade do ecossistema possui sua cor de acento própria, mantendo a identidade unificada.</p>
-  <div class="sistema-visual">
-    <div class="sv-item"><span class="dot" style="background:#B8860B;"></span>News — Ouro Jornalístico</div>
-    <div class="sv-item"><span class="dot" style="background:#1E6B50;"></span>TV — Verde Esmeralda</div>
-    <div class="sv-item"><span class="dot" style="background:#8B4A2A;"></span>Lifestyle — Terracota</div>
-    <div class="sv-item"><span class="dot" style="background:#2A4A7A;"></span>Club — Azul Institucional</div>
-  </div>
-</section>
-<footer>© 2026 Bom Senso® · Veritas · Ordo · Libertas</footer>
+
+  <section class="valores-section">
+    <div class="valores-grid">
+      <div class="valor-card">
+        <div class="valor-icon">⚖️</div>
+        <div class="valor-title">1 + 1 = 2</div>
+        <div class="valor-desc">Fatos são fatos. Sem narrativas, sem distorções.</div>
+      </div>
+      <div class="valor-card">
+        <div class="valor-icon">✝️</div>
+        <div class="valor-title">Fé em Deus</div>
+        <div class="valor-desc">Fundamento moral da civilização e da vida em sociedade.</div>
+      </div>
+      <div class="valor-card">
+        <div class="valor-icon">🏛️</div>
+        <div class="valor-title">Conservadorismo</div>
+        <div class="valor-desc">Preservar o que funciona. Reformar com prudência.</div>
+      </div>
+      <div class="valor-card">
+        <div class="valor-icon">📈</div>
+        <div class="valor-title">Livre Mercado</div>
+        <div class="valor-desc">Menos Estado, mais liberdade econômica.</div>
+      </div>
+      <div class="valor-card">
+        <div class="valor-icon">🤍</div>
+        <div class="valor-title">Pró-Vida</div>
+        <div class="valor-desc">Defesa da vida desde a concepção.</div>
+      </div>
+      <div class="valor-card">
+        <div class="valor-icon">🛡️</div>
+        <div class="valor-title">Pró-Armas</div>
+        <div class="valor-desc">Direito à legítima defesa e autopreservação.</div>
+      </div>
+      <div class="valor-card">
+        <div class="valor-icon">👨‍👩‍👧</div>
+        <div class="valor-title">Família</div>
+        <div class="valor-desc">Célula fundamental da sociedade.</div>
+      </div>
+      <div class="valor-card">
+        <div class="valor-icon">🇧🇷</div>
+        <div class="valor-title">Patriotismo</div>
+        <div class="valor-desc">Amor ao Brasil e compromisso com seu futuro.</div>
+      </div>
+      <div class="valor-card">
+        <div class="valor-icon">🔧</div>
+        <div class="valor-title">Pragmatismo</div>
+        <div class="valor-desc">Soluções práticas, não ideológicas.</div>
+      </div>
+      <div class="valor-card">
+        <div class="valor-icon">🗽</div>
+        <div class="valor-title">Liberdade</div>
+        <div class="valor-desc">De expressão, de empreender, de culto, de se defender.</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2026 Bom Senso® · Veritas · Ordo · Libertas</footer>
+
 </body>
 </html>
