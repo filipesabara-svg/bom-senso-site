@@ -405,9 +405,67 @@
       color: rgba(245,240,232,0.3);
     }
 
+    /* ACCORDION MOBILE */
+    .card-body { transition: max-height 0.35s ease, opacity 0.3s ease; }
+
+    @media (max-width: 768px) {
+      .unidades-grid { grid-template-columns: 1fr; gap: 0; border: 1px solid rgba(255,255,255,0.08); }
+
+      .unidade-card {
+        border: none;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        padding: 0;
+        transform: none !important;
+        cursor: pointer;
+      }
+      .unidade-card:last-child { border-bottom: none; }
+      .unidade-card::after { display: none; }
+
+      .card-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.2rem 1.5rem;
+        gap: 1rem;
+      }
+
+      .card-header-left { display: flex; flex-direction: column; gap: 0.2rem; }
+
+      .card-chevron {
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+        transition: transform 0.3s ease;
+        color: var(--accent);
+      }
+
+      .unidade-card.open .card-chevron { transform: rotate(180deg); }
+
+      .card-body {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        padding: 0 1.5rem;
+      }
+
+      .unidade-card.open .card-body {
+        max-height: 400px;
+        opacity: 1;
+        padding: 0 1.5rem 1.5rem;
+      }
+
+      .card-tags { margin-top: 1rem; }
+    }
+
+    @media (min-width: 769px) {
+      .card-header { display: contents; }
+      .card-chevron { display: none; }
+      .card-body { max-height: none !important; opacity: 1 !important; padding: 0 !important; }
+      .unidade-card { cursor: default; }
+    }
+
     /* RESPONSIVE */
     @media (max-width: 600px) {
-      .unidades-grid { grid-template-columns: 1fr; }
       .valores-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
@@ -451,58 +509,98 @@
       </div>
       <div class="unidades-grid">
 
+        
         <div class="unidade-card card-news">
-          <p class="card-tag">Portal de Notícias</p>
-          <h3 class="card-name">Bom Senso News<sup style="font-size:0.5em">®</sup></h3>
-          <p class="card-slogan">"A realidade como ela é"</p>
-          <p class="card-desc">Portal de notícias diário com cobertura de política, economia, segurança, agronegócio e mundo. Jornalismo sem filtro ideológico, com análise conservadora e compromisso com os fatos.</p>
-          <div class="card-tags">
+          <div class="card-header">
+            <div class="card-header-left">
+              <p class="card-tag">Portal de Notícias</p>
+              <h3 class="card-name">Bom Senso News<sup style="font-size:0.5em">®</sup></h3>
+            </div>
+            <svg class="card-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="card-body">
+            <p class="card-slogan">"A realidade como ela é"</p>
+            <p class="card-desc">Portal de notícias diário com cobertura de política, economia, segurança, agronegócio e mundo. Jornalismo sem filtro ideológico, com análise conservadora e compromisso com os fatos.</p>
+            <div class="card-tags">
             <span>Política</span><span>Economia</span><span>Segurança</span>
             <span>Agronegócio</span><span>Mundo</span><span>Fé & Valores</span>
           </div>
+          </div>
         </div>
 
+        
         <div class="unidade-card card-tv">
-          <p class="card-tag">YouTube / Rumble</p>
-          <h3 class="card-name">Bom Senso TV<sup style="font-size:0.5em">®</sup></h3>
-          <p class="card-slogan">"Veja com seus próprios olhos"</p>
-          <p class="card-desc">Canal de vídeo com entrevistas exclusivas, debates ao vivo, análise de conjuntura e cobertura de eventos. Presença no YouTube, Rumble e plataformas independentes.</p>
-          <div class="card-tags">
+          <div class="card-header">
+            <div class="card-header-left">
+              <p class="card-tag">YouTube / Rumble</p>
+              <h3 class="card-name">Bom Senso TV<sup style="font-size:0.5em">®</sup></h3>
+            </div>
+            <svg class="card-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="card-body">
+            <p class="card-slogan">"Veja com seus próprios olhos"</p>
+            <p class="card-desc">Canal de vídeo com entrevistas exclusivas, debates ao vivo, análise de conjuntura e cobertura de eventos. Presença no YouTube, Rumble e plataformas independentes.</p>
+            <div class="card-tags">
             <span>Entrevistas</span><span>Debates ao Vivo</span>
             <span>Análise Política</span><span>Documentários</span>
           </div>
+          </div>
         </div>
 
+        
         <div class="unidade-card card-lifestyle">
-          <p class="card-tag">Podcasts Temáticos</p>
-          <h3 class="card-name">Bom Senso Lifestyle<sup style="font-size:0.5em">®</sup></h3>
-          <p class="card-slogan">"A vida bem vivida"</p>
-          <p class="card-desc">Podcasts que celebram o estilo de vida do homem e da mulher conservadores. Cultura, gastronomia, viagens e entretenimento com curadoria e bom gosto.</p>
-          <div class="card-tags">
+          <div class="card-header">
+            <div class="card-header-left">
+              <p class="card-tag">Podcasts Temáticos</p>
+              <h3 class="card-name">Bom Senso Lifestyle<sup style="font-size:0.5em">®</sup></h3>
+            </div>
+            <svg class="card-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="card-body">
+            <p class="card-slogan">"A vida bem vivida"</p>
+            <p class="card-desc">Podcasts que celebram o estilo de vida do homem e da mulher conservadores. Cultura, gastronomia, viagens e entretenimento com curadoria e bom gosto.</p>
+            <div class="card-tags">
             <span>Churrasco</span><span>Vinhos</span><span>Whiskey</span>
             <span>Viagens</span><span>Cinema</span><span>Música</span>
           </div>
-        </div>
-
-        <div class="unidade-card card-club">
-          <p class="card-tag">Encontros Empresariais</p>
-          <h3 class="card-name">Bom Senso Club<sup style="font-size:0.5em">®</sup></h3>
-          <p class="card-slogan">"Construindo o Brasil na prática"</p>
-          <p class="card-desc">Rede de encontros empresariais regionais pelo Brasil. Líderes que transformam o país pelos negócios, apoiando candidatos e pautas alinhadas.</p>
-          <div class="card-tags">
-            <span>Networking</span><span>Encontros Regionais</span>
-            <span>Formação Política</span><span>Empreendedorismo</span>
           </div>
         </div>
 
+        
+        <div class="unidade-card card-club">
+          <div class="card-header">
+            <div class="card-header-left">
+              <p class="card-tag">Encontros Empresariais</p>
+              <h3 class="card-name">Bom Senso Club<sup style="font-size:0.5em">®</sup></h3>
+            </div>
+            <svg class="card-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="card-body">
+            <p class="card-slogan">"Construindo o Brasil na prática"</p>
+            <p class="card-desc">Rede de encontros empresariais regionais pelo Brasil. Líderes que transformam o país pelos negócios, apoiando candidatos e pautas alinhadas.</p>
+            <div class="card-tags">
+            <span>Networking</span><span>Encontros Regionais</span>
+            <span>Formação Política</span><span>Empreendedorismo</span>
+          </div>
+          </div>
+        </div>
+
+        
         <div class="unidade-card card-partido">
-          <p class="card-tag">Partido Político</p>
-          <h3 class="card-name">Partido Bom Senso<sup style="font-size:0.5em">®</sup></h3>
-          <p class="card-slogan">"Verdade, ordem e liberdade"</p>
-          <p class="card-desc">Partido fundado nos princípios inegociáveis do bom senso. Plataforma para cidadãos que acreditam que o Brasil pode ser governado com pragmatismo, fé e respeito à realidade.</p>
-          <div class="card-tags">
+          <div class="card-header">
+            <div class="card-header-left">
+              <p class="card-tag">Partido Político</p>
+              <h3 class="card-name">Partido Bom Senso<sup style="font-size:0.5em">®</sup></h3>
+            </div>
+            <svg class="card-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="card-body">
+            <p class="card-slogan">"Verdade, ordem e liberdade"</p>
+            <p class="card-desc">Partido fundado nos princípios inegociáveis do bom senso. Plataforma para cidadãos que acreditam que o Brasil pode ser governado com pragmatismo, fé e respeito à realidade.</p>
+            <div class="card-tags">
             <span>Conservadorismo</span><span>Livre Mercado</span>
             <span>Pragmatismo</span><span>Fé em Deus</span>
+          </div>
           </div>
         </div>
 
@@ -557,5 +655,22 @@
     <p>© 2026 Ecossistema Bom Senso. Todos os direitos reservados.</p>
   </footer>
 
+  <script>
+    // Accordion — só ativa em mobile
+    function initAccordion() {
+      const cards = document.querySelectorAll('.unidade-card');
+      cards.forEach(card => {
+        card.addEventListener('click', () => {
+          if (window.innerWidth > 768) return;
+          const isOpen = card.classList.contains('open');
+          // Fecha todos
+          cards.forEach(c => c.classList.remove('open'));
+          // Abre o clicado (se estava fechado)
+          if (!isOpen) card.classList.add('open');
+        });
+      });
+    }
+    document.addEventListener('DOMContentLoaded', initAccordion);
+  </script>
 </body>
 </html>
