@@ -1,202 +1,585 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bom Senso® — Veritas · Ordo · Libertas</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{--gold:#C9A84C;--bg:#0f0f0f;--text:#f5f0e8;--card:#1a1a1a}
-body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
-a{color:inherit;text-decoration:none}
-nav{position:fixed;top:0;width:100%;background:rgba(15,15,15,0.95);backdrop-filter:blur(10px);z-index:100;border-bottom:1px solid rgba(201,168,76,0.2);padding:0 2rem}
-.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
-.nav-logo{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:900;color:var(--gold);letter-spacing:2px}
-.nav-links{display:flex;gap:1.5rem;list-style:none}
-.nav-links a{font-size:0.82rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--text);opacity:0.8;transition:opacity 0.2s,color 0.2s}
-.nav-links a:hover{opacity:1;color:var(--gold)}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
-.hamburger span{width:24px;height:2px;background:var(--text);display:block}
-@media(max-width:768px){
-  .nav-links{display:none;position:absolute;top:64px;left:0;width:100%;background:#0f0f0f;flex-direction:column;padding:1rem 2rem;gap:1rem;border-bottom:1px solid rgba(201,168,76,0.2)}
-  .nav-links.open{display:flex}
-  .hamburger{display:flex}
-}
-.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:6rem 2rem 4rem;background:radial-gradient(ellipse at center,rgba(201,168,76,0.08) 0%,transparent 70%)}
-.hero-eyebrow{font-size:0.8rem;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;opacity:0.8}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(3rem,8vw,7rem);font-weight:900;line-height:1;color:var(--gold);margin-bottom:1rem;text-shadow:0 0 60px rgba(201,168,76,0.3)}
-.hero-tagline{font-size:clamp(1rem,2vw,1.3rem);letter-spacing:3px;text-transform:uppercase;color:var(--text);opacity:0.7;margin-bottom:2rem}
-.hero-quote{font-family:'Playfair Display',serif;font-size:clamp(1.1rem,2.5vw,1.6rem);font-style:italic;color:var(--text);opacity:0.85;max-width:600px;margin:0 auto}
-section{padding:6rem 2rem}
-.container{max-width:1200px;margin:0 auto}
-.section-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--gold);margin-bottom:0.5rem}
-.section-sub{font-size:0.85rem;letter-spacing:3px;text-transform:uppercase;opacity:0.5;margin-bottom:3rem}
-.cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem}
-.card{background:#1a1a1a;border:1px solid rgba(255,255,255,0.06);border-radius:4px;padding:2rem 1.5rem;transition:transform 0.3s,border-color 0.3s;cursor:pointer;display:block}
-.card:hover{transform:translateY(-4px);border-color:rgba(201,168,76,0.4)}
-.card-accent{width:3px;height:40px;border-radius:2px;margin-bottom:1.2rem}
-.card h3{font-family:'Playfair Display',serif;font-size:1.2rem;margin-bottom:0.5rem;color:#f5f0e8}
-.card p{font-size:0.85rem;opacity:0.6;line-height:1.6;color:#f5f0e8}
-.card-cta{display:inline-block;margin-top:1rem;font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;opacity:0.7;transition:opacity 0.2s}
-.card:hover .card-cta{opacity:1}
-.founders-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem}
-.founder-card{background:#1a1a1a;border:1px solid rgba(255,255,255,0.06);border-radius:4px;padding:1.5rem;text-align:center}
-.founder-initial{width:64px;height:64px;border-radius:50%;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--gold)}
-.founder-name{font-family:'Playfair Display',serif;font-size:1rem;margin-bottom:0.3rem}
-.founder-role{font-size:0.75rem;opacity:0.5;letter-spacing:1px;text-transform:uppercase}
-.values-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem}
-.value-item{background:#1a1a1a;border:1px solid rgba(255,255,255,0.06);border-radius:4px;padding:1.5rem 1rem;text-align:center;transition:border-color 0.3s}
-.value-item:hover{border-color:rgba(201,168,76,0.3)}
-.value-icon{font-size:2rem;margin-bottom:0.8rem}
-.value-label{font-family:'Playfair Display',serif;font-size:0.95rem}
-footer{background:#080808;border-top:1px solid rgba(201,168,76,0.15);padding:3rem 2rem;text-align:center}
-.footer-logo{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--gold);font-weight:900;margin-bottom:1rem}
-.footer-tagline{font-size:0.75rem;letter-spacing:3px;text-transform:uppercase;opacity:0.4;margin-bottom:1.5rem}
-.footer-links{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;margin-bottom:1.5rem}
-.footer-links a{font-size:0.8rem;opacity:0.5;letter-spacing:1px;text-transform:uppercase;transition:opacity 0.2s}
-.footer-links a:hover{opacity:1;color:var(--gold)}
-.footer-copy{font-size:0.75rem;opacity:0.3}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bom Senso® — Onde a verdade é o princípio</title>
+  <meta name="description" content="Ecossistema Bom Senso — Holding com cinco unidades: News, TV, Lifestyle, Club e Partido. Veritas · Ordo · Libertas." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #B8860B;
+      --gold-light: #D4A017;
+      --cream: #F5F0E8;
+      --dark: #1A1A1A;
+      --gray: #4A4A4A;
+      --light-gray: #E8E3D8;
+      --news: #B8860B;
+      --tv: #1E6B50;
+      --lifestyle: #6B3A2A;
+      --club: #2A4A7A;
+      --partido: #1B5E20;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--dark);
+      color: var(--cream);
+      overflow-x: hidden;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      background: radial-gradient(ellipse at center, #2a2218 0%, #111008 60%, #0a0a0a 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23B8860B' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.5;
+    }
+
+    /* BRASÃO SVG */
+    .brasao {
+      width: 140px;
+      height: 140px;
+      margin-bottom: 2rem;
+      filter: drop-shadow(0 0 30px rgba(184,134,11,0.4));
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .hero-tagline {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.4em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 8vw, 7rem);
+      font-weight: 900;
+      line-height: 1;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-title span {
+      color: var(--gold);
+    }
+
+    .hero-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(0.9rem, 2vw, 1.2rem);
+      font-weight: 400;
+      color: rgba(245,240,232,0.6);
+      letter-spacing: 0.15em;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-motto {
+      font-size: 0.65rem;
+      letter-spacing: 0.5em;
+      color: var(--gold);
+      text-transform: uppercase;
+      opacity: 0.8;
+      margin-bottom: 3rem;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      padding: 0.9rem 2.5rem;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .hero-cta:hover {
+      background: var(--gold);
+      color: var(--dark);
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0.4;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .scroll-hint span {
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+    }
+
+    .scroll-hint svg { width: 20px; }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 0.8; }
+    }
+
+    /* SOBRE */
+    .sobre {
+      background: var(--cream);
+      color: var(--dark);
+      padding: 6rem 2rem;
+      text-align: center;
+    }
+
+    .sobre-inner {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    .sobre h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      color: var(--dark);
+    }
+
+    .sobre p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--gray);
+    }
+
+    /* UNIDADES */
+    .unidades {
+      background: #111;
+      padding: 6rem 2rem;
+    }
+
+    .unidades-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .unidades-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .unidades-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: var(--cream);
+    }
+
+    .unidades-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .unidade-card {
+      position: relative;
+      padding: 2.5rem 2rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.02);
+      transition: all 0.3s ease;
+      cursor: default;
+      overflow: hidden;
+    }
+
+    .unidade-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px;
+      height: 100%;
+      background: var(--accent);
+      opacity: 0.8;
+    }
+
+    .unidade-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--accent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .unidade-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+
+    .unidade-card:hover::after {
+      opacity: 0.04;
+    }
+
+    .card-news { --accent: var(--news); }
+    .card-tv { --accent: var(--tv); }
+    .card-lifestyle { --accent: var(--lifestyle); }
+    .card-club { --accent: var(--club); }
+    .card-partido { --accent: var(--partido); }
+
+    .card-tag {
+      font-size: 0.6rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card-slogan {
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-style: italic;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card-desc {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: rgba(245,240,232,0.6);
+      position: relative;
+      z-index: 1;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card-tags span {
+      font-size: 0.65rem;
+      padding: 0.25rem 0.7rem;
+      border: 1px solid rgba(255,255,255,0.1);
+      color: rgba(245,240,232,0.5);
+      letter-spacing: 0.05em;
+    }
+
+    /* VALORES */
+    .valores {
+      background: var(--cream);
+      color: var(--dark);
+      padding: 6rem 2rem;
+    }
+
+    .valores-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .valores h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      margin-bottom: 3rem;
+    }
+
+    .valores-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 2rem;
+    }
+
+    .valor-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .valor-icon {
+      width: 48px;
+      height: 48px;
+      border: 1px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    .valor-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .valor-desc {
+      font-size: 0.8rem;
+      color: var(--gray);
+      line-height: 1.5;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #0a0a0a;
+      padding: 3rem 2rem;
+      text-align: center;
+      border-top: 1px solid rgba(184,134,11,0.2);
+    }
+
+    footer .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+    }
+
+    footer .footer-logo span { color: var(--gold); }
+
+    footer .footer-motto {
+      font-size: 0.6rem;
+      letter-spacing: 0.5em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    footer p {
+      font-size: 0.75rem;
+      color: rgba(245,240,232,0.3);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      .unidades-grid { grid-template-columns: 1fr; }
+      .valores-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
 </head>
 <body>
-<nav>
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo">BOM SENSO®</a>
-    <button class="hamburger" onclick="this.nextElementSibling.classList.toggle('open')">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="news.html">News</a></li>
-      <li><a href="tv.html">TV</a></li>
-      <li><a href="lifestyle.html">Lifestyle</a></li>
-      <li><a href="club.html">Club</a></li>
-      <li><a href="partido.html">Partido</a></li>
-      <li><a href="sobre.html">Sobre</a></li>
-    </ul>
-  </div>
-</nav>
 
-<section class="hero">
-  <div>
-    <p class="hero-eyebrow">Ecossistema</p>
-    <h1>BOM SENSO®</h1>
-    <p class="hero-tagline">Veritas · Ordo · Libertas</p>
-    <p class="hero-quote">"Onde a verdade é o princípio"</p>
-  </div>
-</section>
+  <!-- HERO -->
+  <section class="hero">
+    <!-- Brasão SVG inline -->
+    <svg class="brasao" viewBox="0 0 200 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Escudo -->
+      <path d="M100 10 L185 50 L185 130 C185 170 145 200 100 215 C55 200 15 170 15 130 L15 50 Z"
+            fill="none" stroke="#B8860B" stroke-width="2"/>
+      <!-- Losango central -->
+      <path d="M100 55 L145 110 L100 165 L55 110 Z"
+            fill="none" stroke="#B8860B" stroke-width="1.5"/>
+      <!-- Estrela de 5 pontas central -->
+      <polygon points="100,75 105,100 130,100 110,115 117,140 100,125 83,140 90,115 70,100 95,100"
+               fill="#B8860B" opacity="0.9"/>
+      <!-- Contra-estrela menor -->
+      <polygon points="100,88 103,98 113,98 105,104 108,114 100,108 92,114 95,104 87,98 97,98"
+               fill="#1A1A1A"/>
+      <!-- Coroa no topo -->
+      <path d="M75 45 L80 30 L90 40 L100 25 L110 40 L120 30 L125 45 Z"
+            fill="#B8860B" opacity="0.8"/>
+      <!-- Ramos de louros -->
+      <path d="M30 110 Q20 90 25 70 Q35 80 40 95 Q45 80 55 75 Q50 95 45 110"
+            fill="#B8860B" opacity="0.5"/>
+      <path d="M170 110 Q180 90 175 70 Q165 80 160 95 Q155 80 145 75 Q150 95 155 110"
+            fill="#B8860B" opacity="0.5"/>
+      <!-- Texto Veritas Ordo Libertas -->
+      <text x="100" y="200" text-anchor="middle" font-family="serif" font-size="7"
+            fill="#B8860B" letter-spacing="2">VERITAS · ORDO · LIBERTAS</text>
+    </svg>
 
-<section style="background:#0a0a0a">
-  <div class="container">
-    <h2 class="section-title">O Ecossistema</h2>
-    <p class="section-sub">Cinco unidades. Um propósito.</p>
-    <div class="cards-grid">
-      <a href="news.html" class="card">
-        <div class="card-accent" style="background:#B8860B"></div>
-        <h3>Bom Senso News</h3>
-        <p>Portal de notícias diário com jornalismo sem filtro ideológico e análise conservadora.</p>
-        <span class="card-cta" style="color:#B8860B">Acessar →</span>
-      </a>
-      <a href="tv.html" class="card">
-        <div class="card-accent" style="background:#1E6B50"></div>
-        <h3>Bom Senso TV</h3>
-        <p>Canal de vídeo com entrevistas exclusivas, debates ao vivo e análise de conjuntura.</p>
-        <span class="card-cta" style="color:#1E6B50">Acessar →</span>
-      </a>
-      <a href="lifestyle.html" class="card">
-        <div class="card-accent" style="background:#8B4A2A"></div>
-        <h3>Bom Senso Lifestyle</h3>
-        <p>Podcasts que celebram o estilo de vida do homem e da mulher conservadores.</p>
-        <span class="card-cta" style="color:#8B4A2A">Acessar →</span>
-      </a>
-      <a href="club.html" class="card">
-        <div class="card-accent" style="background:#2A4A7A"></div>
-        <h3>Bom Senso Club</h3>
-        <p>Rede de encontros empresariais regionais. Líderes que transformam o país pelos negócios.</p>
-        <span class="card-cta" style="color:#2A4A7A">Acessar →</span>
-      </a>
-      <a href="partido.html" class="card">
-        <div class="card-accent" style="background:#1B5E20"></div>
-        <h3>Partido Bom Senso</h3>
-        <p>Partido fundado nos princípios inegociáveis do bom senso. Brasil com pragmatismo e fé.</p>
-        <span class="card-cta" style="color:#1B5E20">Acessar →</span>
-      </a>
+    <p class="hero-tagline">Ecossistema Bom Senso · Holding + 5 Unidades · 2026</p>
+    <h1 class="hero-title">Bom<br/><span>Senso</span><sup style="font-size:0.3em;vertical-align:super;">®</sup></h1>
+    <p class="hero-subtitle">Onde a verdade é o princípio</p>
+    <p class="hero-motto">Veritas · Ordo · Libertas</p>
+    <a href="#unidades" class="hero-cta">Conheça o ecossistema</a>
+
+    <div class="scroll-hint">
+      <span>Scroll</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 5v14M5 12l7 7 7-7"/>
+      </svg>
     </div>
-  </div>
-</section>
+  </section>
 
-<section>
-  <div class="container">
-    <h2 class="section-title">Fundadores</h2>
-    <p class="section-sub">Os que tornaram isso possível</p>
-    <div class="founders-grid">
-      <div class="founder-card">
-        <div class="founder-initial">F</div>
-        <div class="founder-name">Filipe Sabará</div>
-        <div class="founder-role">Fundador &amp; CEO</div>
+  <!-- SOBRE -->
+  <section class="sobre">
+    <div class="sobre-inner">
+      <p class="section-label">Sobre o Ecossistema</p>
+      <h2>Uma holding. Cinco frentes.<br/>Um único princípio.</h2>
+      <p>O Bom Senso é um ecossistema integrado que une informação, conteúdo, estilo de vida, comunidade e ação política. Da notícia à candidatura — os mesmos valores se aplicam em todo o ecossistema: fatos são fatos, a família é o alicerce, o livre mercado é o caminho.</p>
+    </div>
+  </section>
+
+  <!-- UNIDADES -->
+  <section class="unidades" id="unidades">
+    <div class="unidades-inner">
+      <div class="unidades-header">
+        <p class="section-label" style="color:var(--gold)">As Cinco Unidades</p>
+        <h2>Do conteúdo à ação</h2>
       </div>
-      <div class="founder-card">
-        <div class="founder-initial">N</div>
-        <div class="founder-name">Nelson Santini</div>
-        <div class="founder-role">Fundador</div>
-      </div>
-      <div class="founder-card">
-        <div class="founder-initial">D</div>
-        <div class="founder-name">Daniel Gonzalez</div>
-        <div class="founder-role">Fundador</div>
-      </div>
-      <div class="founder-card">
-        <div class="founder-initial">J</div>
-        <div class="founder-name">João Brasio</div>
-        <div class="founder-role">Fundador</div>
-      </div>
-      <div class="founder-card">
-        <div class="founder-initial">B</div>
-        <div class="founder-name">Bismarck Fugazza</div>
-        <div class="founder-role">Fundador</div>
-      </div>
-      <div class="founder-card">
-        <div class="founder-initial">A</div>
-        <div class="founder-name">Augusto Pacheco</div>
-        <div class="founder-role">Fundador</div>
+      <div class="unidades-grid">
+
+        <div class="unidade-card card-news">
+          <p class="card-tag">Portal de Notícias</p>
+          <h3 class="card-name">Bom Senso News<sup style="font-size:0.5em">®</sup></h3>
+          <p class="card-slogan">"A realidade como ela é"</p>
+          <p class="card-desc">Portal de notícias diário com cobertura de política, economia, segurança, agronegócio e mundo. Jornalismo sem filtro ideológico, com análise conservadora e compromisso com os fatos.</p>
+          <div class="card-tags">
+            <span>Política</span><span>Economia</span><span>Segurança</span>
+            <span>Agronegócio</span><span>Mundo</span><span>Fé & Valores</span>
+          </div>
+        </div>
+
+        <div class="unidade-card card-tv">
+          <p class="card-tag">YouTube / Rumble</p>
+          <h3 class="card-name">Bom Senso TV<sup style="font-size:0.5em">®</sup></h3>
+          <p class="card-slogan">"Veja com seus próprios olhos"</p>
+          <p class="card-desc">Canal de vídeo com entrevistas exclusivas, debates ao vivo, análise de conjuntura e cobertura de eventos. Presença no YouTube, Rumble e plataformas independentes.</p>
+          <div class="card-tags">
+            <span>Entrevistas</span><span>Debates ao Vivo</span>
+            <span>Análise Política</span><span>Documentários</span>
+          </div>
+        </div>
+
+        <div class="unidade-card card-lifestyle">
+          <p class="card-tag">Podcasts Temáticos</p>
+          <h3 class="card-name">Bom Senso Lifestyle<sup style="font-size:0.5em">®</sup></h3>
+          <p class="card-slogan">"A vida bem vivida"</p>
+          <p class="card-desc">Podcasts que celebram o estilo de vida do homem e da mulher conservadores. Cultura, gastronomia, viagens e entretenimento com curadoria e bom gosto.</p>
+          <div class="card-tags">
+            <span>Churrasco</span><span>Vinhos</span><span>Whiskey</span>
+            <span>Viagens</span><span>Cinema</span><span>Música</span>
+          </div>
+        </div>
+
+        <div class="unidade-card card-club">
+          <p class="card-tag">Encontros Empresariais</p>
+          <h3 class="card-name">Bom Senso Club<sup style="font-size:0.5em">®</sup></h3>
+          <p class="card-slogan">"Construindo o Brasil na prática"</p>
+          <p class="card-desc">Rede de encontros empresariais regionais pelo Brasil. Líderes que transformam o país pelos negócios, apoiando candidatos e pautas alinhadas.</p>
+          <div class="card-tags">
+            <span>Networking</span><span>Encontros Regionais</span>
+            <span>Formação Política</span><span>Empreendedorismo</span>
+          </div>
+        </div>
+
+        <div class="unidade-card card-partido">
+          <p class="card-tag">Partido Político</p>
+          <h3 class="card-name">Partido Bom Senso<sup style="font-size:0.5em">®</sup></h3>
+          <p class="card-slogan">"Verdade, ordem e liberdade"</p>
+          <p class="card-desc">Partido fundado nos princípios inegociáveis do bom senso. Plataforma para cidadãos que acreditam que o Brasil pode ser governado com pragmatismo, fé e respeito à realidade.</p>
+          <div class="card-tags">
+            <span>Conservadorismo</span><span>Livre Mercado</span>
+            <span>Pragmatismo</span><span>Fé em Deus</span>
+          </div>
+        </div>
+
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section style="background:#0a0a0a">
-  <div class="container">
-    <h2 class="section-title">Nossos Valores</h2>
-    <p class="section-sub">Os princípios que nos guiam</p>
-    <div class="values-grid">
-      <div class="value-item"><div class="value-icon">🔢</div><div class="value-label">1+1=2</div></div>
-      <div class="value-item"><div class="value-icon">✝️</div><div class="value-label">Fé em Deus</div></div>
-      <div class="value-item"><div class="value-icon">🏛️</div><div class="value-label">Conservadorismo</div></div>
-      <div class="value-item"><div class="value-icon">📈</div><div class="value-label">Livre Mercado</div></div>
-      <div class="value-item"><div class="value-icon">👶</div><div class="value-label">Pró-Vida</div></div>
-      <div class="value-item"><div class="value-icon">🔫</div><div class="value-label">Pró-Armas</div></div>
-      <div class="value-item"><div class="value-icon">👨‍👩‍👧‍👦</div><div class="value-label">Família</div></div>
-      <div class="value-item"><div class="value-icon">🇧🇷</div><div class="value-label">Patriotismo</div></div>
-      <div class="value-item"><div class="value-icon">⚙️</div><div class="value-label">Pragmatismo</div></div>
-      <div class="value-item"><div class="value-icon">🗽</div><div class="value-label">Liberdade</div></div>
+  <!-- VALORES -->
+  <section class="valores">
+    <div class="valores-inner">
+      <p class="section-label">Nossos Princípios</p>
+      <h2>O que une o ecossistema</h2>
+      <div class="valores-grid">
+        <div class="valor-item">
+          <div class="valor-icon">⚖️</div>
+          <p class="valor-title">1 + 1 = 2</p>
+          <p class="valor-desc">Fatos são fatos. Sem narrativas, sem distorções.</p>
+        </div>
+        <div class="valor-item">
+          <div class="valor-icon">✝️</div>
+          <p class="valor-title">Fé em Deus</p>
+          <p class="valor-desc">Fundamento moral da civilização e da vida em sociedade.</p>
+        </div>
+        <div class="valor-item">
+          <div class="valor-icon">🏛️</div>
+          <p class="valor-title">Conservadorismo</p>
+          <p class="valor-desc">Preservar o que funciona. Reformar com prudência.</p>
+        </div>
+        <div class="valor-item">
+          <div class="valor-icon">📈</div>
+          <p class="valor-title">Livre Mercado</p>
+          <p class="valor-desc">Menos Estado, mais liberdade econômica.</p>
+        </div>
+        <div class="valor-item">
+          <div class="valor-icon">👨‍👩‍👧</div>
+          <p class="valor-title">Família</p>
+          <p class="valor-desc">Célula fundamental da sociedade.</p>
+        </div>
+        <div class="valor-item">
+          <div class="valor-icon">🇧🇷</div>
+          <p class="valor-title">Patriotismo</p>
+          <p class="valor-desc">Amor ao Brasil e compromisso com seu futuro.</p>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer>
-  <div class="footer-logo">BOM SENSO®</div>
-  <div class="footer-tagline">Veritas · Ordo · Libertas</div>
-  <div class="footer-links">
-    <a href="news.html">News</a>
-    <a href="tv.html">TV</a>
-    <a href="lifestyle.html">Lifestyle</a>
-    <a href="club.html">Club</a>
-    <a href="partido.html">Partido</a>
-    <a href="sobre.html">Sobre</a>
-  </div>
-  <div class="footer-copy">© 2026 Bom Senso® · Veritas · Ordo · Libertas</div>
-</footer>
+  <!-- FOOTER -->
+  <footer>
+    <p class="footer-logo">Bom <span>Senso</span><sup style="font-size:0.5em">®</sup></p>
+    <p class="footer-motto">Veritas · Ordo · Libertas</p>
+    <p>© 2026 Ecossistema Bom Senso. Todos os direitos reservados.</p>
+  </footer>
+
 </body>
 </html>
