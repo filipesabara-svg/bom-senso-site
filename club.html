@@ -28,6 +28,12 @@ footer{background:#060606;border-top:1px solid rgba(201,168,76,0.15);padding:1re
 .hero .slogan{font-size:0.9rem;opacity:0.6;letter-spacing:0.08em;}
 .atividades-list{display:flex;flex-direction:column;gap:0.5rem;}
 .atividade{background:#141414;border:1px solid rgba(255,255,255,0.06);border-left:3px solid #2A4A7A;border-radius:0 4px 4px 0;padding:0.75rem 1rem;font-size:0.85rem;font-weight:600;}
+
+.temas-ilustrados{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:0.75rem;max-width:900px;margin:0 auto;}
+.tema-card{background:#141414;border:1px solid rgba(255,255,255,0.06);border-radius:6px;padding:1.2rem 0.9rem;display:flex;flex-direction:column;align-items:center;text-align:center;gap:0.5rem;transition:border-color 0.2s;cursor:default;}
+.tema-card:hover{border-color:var(--accent,rgba(201,168,76,0.35));}
+.tema-icon{font-size:1.6rem;line-height:1;}
+.tema-title{font-family:'Playfair Display',serif;font-size:0.82rem;font-weight:700;color:#f0ebe0;}
 </style>
 </head>
 <body>
@@ -48,8 +54,15 @@ footer{background:#060606;border-top:1px solid rgba(201,168,76,0.15);padding:1re
 </section>
 <section>
   <h2>Atividades</h2>
-  <div class="atividades-list">
-    <div class="atividade">Encontros Regionais</div>
+  
+  <div class="temas-ilustrados" style="--accent:rgba(42,74,122,0.35)">
+    <div class="tema-card"><div class="tema-icon">🤝</div><div class="tema-title">Networking</div></div>
+    <div class="tema-card"><div class="tema-icon">📍</div><div class="tema-title">Encontros Regionais</div></div>
+    <div class="tema-card"><div class="tema-icon">🗳️</div><div class="tema-title">Apoio a Candidatos</div></div>
+    <div class="tema-card"><div class="tema-icon">📋</div><div class="tema-title">Pautas Legislativas</div></div>
+    <div class="tema-card"><div class="tema-icon">🎓</div><div class="tema-title">Formação Política</div></div>
+    <div class="tema-card"><div class="tema-icon">💼</div><div class="tema-title">Empreendedorismo</div></div>
+  </div>
     <div class="atividade">Networking</div>
     <div class="atividade">Apoio a Candidatos</div>
     <div class="atividade">Pautas Legislativas</div>
