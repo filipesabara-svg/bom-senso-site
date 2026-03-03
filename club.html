@@ -52,24 +52,20 @@ footer{background:#080808;border-top:1px solid rgba(42,74,122,0.15);padding:3rem
 .footer-copy{font-size:0.75rem;opacity:0.3}
 </style>
 </head>
-<body>
-<nav>
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo">BOM SENSO®</a>
-    <button class="hamburger" onclick="this.nextElementSibling.classList.toggle('open')">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="news.html">News</a></li>
-      <li><a href="tv.html">TV</a></li>
-      <li><a href="lifestyle.html">Lifestyle</a></li>
-      <li><a href="club.html" class="active">Club</a></li>
-      <li><a href="partido.html">Partido</a></li>
-      <li><a href="sobre.html">Sobre</a></li>
-    </ul>
-  </div>
+<body style="padding-top:64px;">
+<nav style="position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(10,10,10,0.96);border-bottom:1px solid rgba(201,168,76,0.3);padding:0.6rem 1.2rem;display:flex;justify-content:space-between;align-items:center;">
+  <a href="index.html" style="font-family:'Playfair Display',serif;color:#C9A84C;font-size:0.75rem;font-weight:700;text-decoration:none;letter-spacing:0.15em;white-space:nowrap;flex-shrink:0;margin-right:2rem;">BOM SENSO®</a>
+  <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <ul class="nav-links" style="display:flex;gap:1rem;list-style:none;margin:0;padding:0;flex-wrap:nowrap;">
+    <li><a href="news.html" style="color:#f5f0e8;text-decoration:none;font-size:0.65rem;letter-spacing:0.08em;text-transform:uppercase;">News</a></li>
+    <li><a href="tv.html" style="color:#f5f0e8;text-decoration:none;font-size:0.65rem;letter-spacing:0.08em;text-transform:uppercase;">TV</a></li>
+    <li><a href="lifestyle.html" style="color:#f5f0e8;text-decoration:none;font-size:0.65rem;letter-spacing:0.08em;text-transform:uppercase;">Lifestyle</a></li>
+    <li><a href="club.html" style="color:#f5f0e8;text-decoration:none;font-size:0.65rem;letter-spacing:0.08em;text-transform:uppercase;">Club</a></li>
+    <li><a href="partido.html" style="color:#f5f0e8;text-decoration:none;font-size:0.65rem;letter-spacing:0.08em;text-transform:uppercase;">Partido</a></li>
+    <li><a href="sobre.html" style="color:#C9A84C;text-decoration:none;font-size:0.65rem;letter-spacing:0.08em;text-transform:uppercase;font-weight:700;">Sobre</a></li>
+  </ul>
 </nav>
+
 
 <div class="page-hero">
   <div class="page-badge">Ecossistema Bom Senso</div>
@@ -115,5 +111,22 @@ footer{background:#080808;border-top:1px solid rgba(42,74,122,0.15);padding:3rem
   </div>
   <div class="footer-copy">© 2026 Bom Senso® · Veritas · Ordo · Libertas</div>
 </footer>
+<style>
+@media (max-width: 768px) {
+  .nav-links { display: none !important; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: rgba(10,10,10,0.98); padding: 1rem 2rem; gap: 1rem !important; }
+  .nav-links.open { display: flex !important; }
+  .hamburger { display: flex !important; }
+}
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.hamburger span { display: block; width: 22px; height: 2px; background: #C9A84C; }
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var btn = document.querySelector('.hamburger');
+  if (btn) btn.addEventListener('click', function() {
+    document.querySelector('.nav-links').classList.toggle('open');
+  });
+});
+</script>
 </body>
 </html>
