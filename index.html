@@ -43,10 +43,17 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 2rem;
+      padding: 5rem 2rem 4rem;
       background: radial-gradient(ellipse at center, #2a2218 0%, #111008 60%, #0a0a0a 100%);
       position: relative;
       overflow: hidden;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        justify-content: flex-start;
+        padding-top: 5rem;
+      }
     }
 
     .hero::before {
