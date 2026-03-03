@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240" fill="none">
+  <!-- Ramos de louros esquerdo -->
+  <g stroke="#B8860B" stroke-width="1.2" stroke-linecap="round" opacity="0.85">
+    <path d="M38 160 Q28 145 30 128"/>
+    <path d="M38 160 Q22 148 26 132" fill="#B8860B" fill-opacity="0.15"/>
+    <ellipse cx="27" cy="126" rx="6" ry="4" transform="rotate(-30 27 126)" fill="#B8860B" fill-opacity="0.4" stroke="none"/>
+    <ellipse cx="22" cy="138" rx="6" ry="4" transform="rotate(-20 22 138)" fill="#B8860B" fill-opacity="0.4" stroke="none"/>
+    <ellipse cx="24" cy="150" rx="6" ry="4" transform="rotate(-10 24 150)" fill="#B8860B" fill-opacity="0.4" stroke="none"/>
+    <ellipse cx="30" cy="160" rx="6" ry="4" transform="rotate(0 30 160)" fill="#B8860B" fill-opacity="0.4" stroke="none"/>
+    <path d="M38 160 Q30 165 28 175"/>
+  </g>
+  <!-- Ramos de louros direito -->
+  <g stroke="#B8860B" stroke-width="1.2" stroke-linecap="round" opacity="0.85">
+    <path d="M162 160 Q172 145 170 128"/>
+    <path d="M162 160 Q178 148 174 132" fill="#B8860B" fill-opacity="0.15"/>
+    <ellipse cx="173" cy="126" rx="6" ry="4" transform="rotate(30 173 126)" fill="#B8860B" fill-opacity="0.4" stroke="none"/>
+    <ellipse cx="178" cy="138" rx="6" ry="4" transform="rotate(20 178 138)" fill="#B8860B" fill-opacity="0.4" stroke="none"/>
+    <ellipse cx="176" cy="150" rx="6" ry="4" transform="rotate(10 176 150)" fill="#B8860B" fill-opacity="0.4" stroke="none"/>
+    <ellipse cx="170" cy="160" rx="6" ry="4" transform="rotate(0 170 160)" fill="#B8860B" fill-opacity="0.4" stroke="none"/>
+    <path d="M162 160 Q170 165 172 175"/>
+  </g>
+
+  <!-- Coroa imperial simplificada -->
+  <g fill="#B8860B" opacity="0.9">
+    <rect x="72" y="44" width="56" height="6" rx="1"/>
+    <rect x="76" y="36" width="8" height="10" rx="1"/>
+    <rect x="96" y="30" width="8" height="16" rx="1"/>
+    <rect x="116" y="36" width="8" height="10" rx="1"/>
+    <!-- pérolas no topo dos pináculos -->
+    <circle cx="80" cy="34" r="3"/>
+    <circle cx="100" cy="28" r="3.5"/>
+    <circle cx="120" cy="34" r="3"/>
+  </g>
+
+  <!-- Escudo heráldico -->
+  <path d="M100 58 L172 88 L172 155 C172 190 138 215 100 228 C62 215 28 190 28 155 L28 88 Z"
+        fill="none" stroke="#B8860B" stroke-width="2"/>
+  <!-- Linha divisória interna do escudo -->
+  <path d="M28 108 L172 108" stroke="#B8860B" stroke-width="0.8" opacity="0.4"/>
+
+  <!-- Losango central -->
+  <path d="M100 72 L148 130 L100 188 L52 130 Z"
+        fill="none" stroke="#B8860B" stroke-width="1.5"/>
+
+  <!-- Estrela de 5 pontas -->
+  <polygon points="100,88 106,115 134,115 112,131 120,158 100,142 80,158 88,131 66,115 94,115"
+           fill="#B8860B" opacity="0.95"/>
+  <!-- Contra-estrela interna (recorte escuro) -->
+  <polygon points="100,100 104,114 118,114 107,122 111,136 100,128 89,136 93,122 82,114 96,114"
+           fill="#0a0a0a"/>
+
+  <!-- Linha base -->
+  <line x1="42" y1="178" x2="158" y2="178" stroke="#B8860B" stroke-width="0.8" opacity="0.6"/>
+
+  <!-- Texto Veritas · Ordo · Libertas -->
+  <text x="100" y="195" text-anchor="middle"
+        font-family="Georgia, serif" font-size="7.5"
+        fill="#B8860B" letter-spacing="2.5" opacity="0.9">VERITAS · ORDO · LIBERTAS</text>
+</svg>
